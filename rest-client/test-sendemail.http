@@ -1,0 +1,51 @@
+
+### Archivo `test-sendamail.http` 
+
+```http
+### Prueba de envío de correo exitoso
+POST http://localhost/api-sendemail/v1/send-email.php
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "john@example.com",
+    "message": "Hello, this is a test message!"
+}
+
+###
+
+### Prueba de envío de correo con datos faltantes
+POST http://localhost/api-sendemail/v1/send-email.php
+Content-Type: application/json
+
+{
+    "name": "",
+    "email": "john@example.com",
+    "message": "Hello, this is a test message!"
+}
+
+###
+
+### Prueba de envío de correo con email inválido
+POST http://localhost/api-sendemail/v1/send-email.php
+Content-Type: application/json
+
+{
+    "name": "John Doe",
+    "email": "invalid-email",
+    "message": "Hello, this is a test message!"
+}
+
+###
+
+### Prueba de envío de correo con todos los datos faltantes
+POST http://localhost/api-sendemail/v1/send-email
+Content-Type: application/json
+
+{
+    "name": "",
+    "email": "",
+    "message": ""
+}
+
+###
